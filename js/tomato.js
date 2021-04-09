@@ -26,9 +26,9 @@
 		return x >= rect.x && x <= rect.x + rect.width && y >= rect.y && y <= rect.y + rect.height;
 	}
 
-	canvas.addEventListener("click", function() {
-		let mX = event.clientX;
-		let mY = event.clientY;
+	canvas.addEventListener("click", function(e) {
+		let mX = e.clientX;
+		let mY = e.clientY;
 
 		if (insideRect(mX, mY, button)) {
 			if (status == "stopped") {

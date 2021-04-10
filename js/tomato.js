@@ -62,7 +62,12 @@
 			timerText = timerMinute + ":" + timer + "/" + tomatoMinute + ":00";
 		} else {
 			statusText = lastStatus + " " + status;
-			timerText = timerMinute + ":" + timer;
+
+			if (lastStatus == "break") {
+				timerText = timerMinute + ":" + timer + "/" + breakMinute + ":00";
+			} else {
+				timerText = timerMinute + ":" + timer + "/" + tomatoMinute + ":00";
+			}
 		}
 
 		ctx.strokeText(statusText, canvas.width / 2 - 100, canvas.height / 2);

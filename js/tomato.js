@@ -7,7 +7,6 @@
 	let status = "stopped";
 	let lastStatus = "tomato";
 	let tomato = 0;
-	let tomatoBreak = 0;
 	let tomatoMinute = 25;
 	let breaks = 0;
 	let breakMinute = 5;

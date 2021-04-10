@@ -17,8 +17,8 @@
 
 	let button = {
 		text: status,
-		x: 50, y: 50,
-		width: 400, height: 250,
+		x: 0, y: 0,
+		width: canvas.width, height: canvas.height,
 		color: "red"
 	};
 
@@ -46,8 +46,8 @@
 
 
 	setInterval(function() {
-		canvas.width = (window.innerWidth > 320) ? window.innerWidth : 320;
-		canvas.height = (window.innerHeight > 320) ? window.innerHeight : 320;
+		button.width = canvas.width = (window.innerWidth > 320) ? window.innerWidth : 320;
+		button.height = canvas.height = (window.innerHeight > 320) ? window.innerHeight : 320;
 
 		button.x = (canvas.width - button.width) / 2;
 		button.y = (canvas.height - button.height) / 2;
@@ -59,18 +59,22 @@
 		ctx.stroke();
 		ctx.font = "24px serif";
 
+		let statusText, timerText;
+
 		if (status == "break") {
-			ctx.strokeText(status, button.x + 5, button.y + button.height/2);
-			ctx.strokeText(timerMinute + ":" + timer + "/" + breakMinute + ":00", button.x + 5, button.y + button.height/2 + 25);
+			statusText = status;
+			timerText = timerMinute + ":" + timer + "/" + breakMinute + ":00";
 		} else if (status == "tomato") {
-			ctx.strokeText(status, button.x + 5, button.y + button.height/2);
-			ctx.strokeText(timerMinute + ":" + timer + "/" + tomatoMinute + ":00", button.x + 5, button.y + button.height/2 + 25);
+			statusText = status;
+			timerText = timerMinute + ":" + timer + "/" + tomatoMinute + ":00";
 		} else {
-			ctx.strokeText(lastStatus + " " + status, button.x + 5, button.y + button.height/2);
-			ctx.strokeText(timerMinute + ":" + timer, button.x + 5, button.y + button.height/2 + 25);
+			statusText = lastStatus + " " + status;
+			timerText = timerMinute + ":" + timer;
 		}
 
-		ctx.strokeText("tomatos: " + tomato + " / breaks: " + breaks, button.x + 5, button.y + button.height/2 + 50);
+		ctx.strokeText(statusText, canvas.width / 2 - 100, canvas.height / 2);
+		ctx.strokeText(timerText, canvas.width / 2 - 100, canvas.height / 2 + 25);
+		ctx.strokeText("tomatos: " + tomato + " / breaks: " + breaks, canvas.width / 2 - 100, canvas.height / 2 + 50);
 	}, 10)
 
 	setInterval(function() {

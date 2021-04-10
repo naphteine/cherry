@@ -79,21 +79,20 @@
 		if (status != "stopped") {
 			timer++;
 
-			if (timer >= 59) {
-				timerMinute++;
-				timer = 0;
-			}
+			if (timer > 59) {
+				if (status == "tomato" && timerMinute + 1 >= tomatoMinute) {
+					tomato++;
+					timerMinute = 0;
+					changeStatus("break");
+				} else if (status == "break" && timerMinute + 1 >= breakMinute) {
+					breaks++;
+					timerMinute = 0;
+					changeStatus("tomato");
+				} else {
+					timerMinute++;
+				}
 
-			if (status == "tomato" && timerMinute >= tomatoMinute) {
-				tomato++;
-				timerMinute = 0;
 				timer = 0;
-				changeStatus("break");
-			} else if (status == "break" && timerMinute >= breakMinute) {
-				breaks++;
-				timerMinute = 0;
-				timer = 0;
-				changeStatus("tomato");
 			}
 		}
 	}, 1000)

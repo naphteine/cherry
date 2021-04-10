@@ -13,48 +13,30 @@
 
 	let timer = 0;
 	let timerMinute = 0;
+	let color = "red";
 
-	let button = {
-		text: status,
-		x: 0, y: 0,
-		width: canvas.width, height: canvas.height,
-		color: "red"
-	};
+	canvas.addEventListener("click", function() {
+		if (status == "stopped") {
+			status = lastStatus;
 
-	let insideRect = function(x, y, rect) {
-		return x >= rect.x && x <= rect.x + rect.width && y >= rect.y && y <= rect.y + rect.height;
-	}
-
-	canvas.addEventListener("click", function(e) {
-		let mX = e.clientX;
-		let mY = e.clientY;
-
-		if (insideRect(mX, mY, button)) {
-			if (status == "stopped") {
-				status = lastStatus;
-
-				if (status == "tomato") button.color = "blue";
-				else if (status == "break") button.color = "green";
-			} else {
-				lastStatus = status;
-				status = "stopped";
-				button.color = "red";
-			}
+			if (status == "tomato") color = "blue";
+			else if (status == "break") color = "green";
+		} else {
+			lastStatus = status;
+			status = "stopped";
+			color = "red";
 		}
 	})
 
 
 	setInterval(function() {
-		button.width = canvas.width = (window.innerWidth > 320) ? window.innerWidth : 320;
-		button.height = canvas.height = (window.innerHeight > 320) ? window.innerHeight : 320;
-
-		button.x = (canvas.width - button.width) / 2;
-		button.y = (canvas.height - button.height) / 2;
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
 
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		ctx.fillStyle = button.color;
+		ctx.fillStyle = color;
 		ctx.beginPath();
-		ctx.fillRect(button.x, button.y, button.width, button.height);
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
 		ctx.stroke();
 		ctx.font = "24px serif";
 
@@ -86,24 +68,24 @@
 			}
 
 			if (status == "tomato") {
-				button.color = "blue";
+				color = "blue";
 
 				if (timerMinute >= tomatoMinute) {
 					tomato++;
 					timerMinute = 0;
 					timer = 0;
 					status = "break";
-					button.color = "green";
+					color = "green";
 				}
 			} else if (status == "break") {
-				button.color = "green";
+				color = "green";
 
 				if (timerMinute >= breakMinute) {
 					breaks++;
 					timerMinute = 0;
 					timer = 0;
 					status = "tomato";
-					button.color = "blue";
+					color = "blue";
 				}
 			}
 		}

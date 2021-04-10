@@ -15,16 +15,28 @@
 	let timerMinute = 0;
 	let color = "red";
 
+	const changeStatus = function(newStatus) {
+		status = newStatus;
+
+		switch (newStatus) {
+			case "tomato":
+				color = "blue";
+				break;
+			case "break":
+				color = "green";
+				break;
+			default:
+				color = "red";
+				break;
+		}
+	};
+
 	canvas.addEventListener("click", function() {
 		if (status == "stopped") {
-			status = lastStatus;
-
-			if (status == "tomato") color = "blue";
-			else if (status == "break") color = "green";
+			changeStatus(lastStatus);
 		} else {
 			lastStatus = status;
-			status = "stopped";
-			color = "red";
+			changeStatus("stopped");
 		}
 	})
 
@@ -67,26 +79,16 @@
 				timer = 0;
 			}
 
-			if (status == "tomato") {
-				color = "blue";
-
-				if (timerMinute >= tomatoMinute) {
-					tomato++;
-					timerMinute = 0;
-					timer = 0;
-					status = "break";
-					color = "green";
-				}
-			} else if (status == "break") {
-				color = "green";
-
-				if (timerMinute >= breakMinute) {
-					breaks++;
-					timerMinute = 0;
-					timer = 0;
-					status = "tomato";
-					color = "blue";
-				}
+			if (status == "tomato" && timerMinute >= tomatoMinute) {
+				tomato++;
+				timerMinute = 0;
+				timer = 0;
+				changeStatus("break");
+			} else if (status == "break" && timerMinute >= breakMinute) {
+				breaks++;
+				timerMinute = 0;
+				timer = 0;
+				changeStatus("tomato");
 			}
 		}
 	}, 1000)

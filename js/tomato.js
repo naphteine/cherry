@@ -15,6 +15,9 @@
 	let timerMinute = 0;
 	let color = "red";
 
+	let interval = 1000;
+	let expected = Date.now() + interval;
+
 	const changeStatus = function(newStatus) {
 		status = newStatus;
 
@@ -78,7 +81,13 @@
 		ctx.fillText("tomatos: " + tomato + " / breaks: " + breaks, canvas.width / 2, canvas.height / 2 + 50);
 	}, 10)
 
-	setInterval(function() {
+
+	const step = function() {
+		let dt = Date.now() - expected;
+		if (dt > interval) {
+			// SNAFU
+		}
+
 		if (status != "stopped") {
 			timer++;
 
@@ -98,5 +107,10 @@
 				timer = 0;
 			}
 		}
-	}, 1000)
+
+		expected += interval;
+		setTimeout(step, Math.max(0, interval - dt));
+	};
+
+	setTimeout(step, interval);
 }());

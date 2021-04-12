@@ -79,6 +79,8 @@
 		ctx.fillText(statusText, canvas.width / 2, canvas.height / 2);
 		ctx.fillText(timerText, canvas.width / 2, canvas.height / 2 + 25);
 		ctx.fillText("tomatos: " + tomatoCounter + " / breaks: " + breakCounter, canvas.width / 2, canvas.height / 2 + 50);
+
+		document.title = timerText + " - " + statusText;
 	}, 10)
 
 

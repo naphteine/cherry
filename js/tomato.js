@@ -70,9 +70,10 @@
 			}
 		}
 
-		ctx.strokeText(statusText, canvas.width / 2 - 100, canvas.height / 2);
-		ctx.strokeText(timerText, canvas.width / 2 - 100, canvas.height / 2 + 25);
-		ctx.strokeText("tomatos: " + tomato + " / breaks: " + breaks, canvas.width / 2 - 100, canvas.height / 2 + 50);
+		ctx.fillStyle = "white";
+		ctx.fillText(statusText, canvas.width / 2 - 100, canvas.height / 2);
+		ctx.fillText(timerText, canvas.width / 2 - 100, canvas.height / 2 + 25);
+		ctx.fillText("tomatos: " + tomato + " / breaks: " + breaks, canvas.width / 2 - 100, canvas.height / 2 + 50);
 	}, 10)
 
 	setInterval(function() {

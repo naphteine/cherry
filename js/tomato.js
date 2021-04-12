@@ -6,9 +6,9 @@
 
 	let status = "stopped";
 	let lastStatus = "tomato";
-	let tomato = 0;
+	let tomatoCounter = 0;
 	let tomatoMinute = 25;
-	let breaks = 0;
+	let breakCounter = 0;
 	let breakMinute = 5;
 
 	let timer = 0;
@@ -78,7 +78,7 @@
 		ctx.fillStyle = "white";
 		ctx.fillText(statusText, canvas.width / 2, canvas.height / 2);
 		ctx.fillText(timerText, canvas.width / 2, canvas.height / 2 + 25);
-		ctx.fillText("tomatos: " + tomato + " / breaks: " + breaks, canvas.width / 2, canvas.height / 2 + 50);
+		ctx.fillText("tomatos: " + tomatoCounter + " / breaks: " + breakCounter, canvas.width / 2, canvas.height / 2 + 50);
 	}, 10)
 
 
@@ -93,11 +93,11 @@
 
 			if (timer > 59) {
 				if (status == "tomato" && timerMinute + 1 >= tomatoMinute) {
-					tomato++;
+					tomatoCounter++;
 					timerMinute = 0;
 					changeStatus("break");
 				} else if (status == "break" && timerMinute + 1 >= breakMinute) {
-					breaks++;
+					breakCounter++;
 					timerMinute = 0;
 					changeStatus("tomato");
 				} else {

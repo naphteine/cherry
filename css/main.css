@@ -1,24 +1,52 @@
 body {
-	background-color: #111116;
-	color: #888892;
-	font-size: 16px;
-	line-height: 1.6;
-	margin: 0;
-	max-width: 800px;
-	padding: 0;
+  background-color: #f5eaea64;
+  color: #242020;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 800px;
+  padding: 0;
 }
 
 canvas {
-	background: #eee;
-	display: block;
-	margin: 0 auto;
+  background: #eee;
+  display: block;
+  margin: 0 auto;
 }
 
-h1, h2, h3 {
-	line-height: 1.2;
+h1,
+h2,
+h3 {
+  line-height: 1.2;
 }
 
 html {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.tomato {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  background-color: #ffc0c099;
+  width: 50%;
+  min-width: 300px;
+  border-radius: 10px;
+  padding: 0.5rem 2rem;
+}
+
+.button {
+  border: 1px solid #00000033;
+  background-color: #ff000055;
+  width: 4rem;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #ff000033;
+  cursor: pointer;
 }

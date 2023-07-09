@@ -59,7 +59,7 @@
         timerMinute.toString().padStart(2, 0) +
         ":" +
         timer.toString().padStart(2, 0) +
-        "/" +
+        " / " +
         breakMinute +
         ":00";
     } else if (status == "Working") {
@@ -68,7 +68,7 @@
         timerMinute.toString().padStart(2, 0) +
         ":" +
         timer.toString().padStart(2, 0) +
-        "/" +
+        " / " +
         tomatoMinute +
         ":00";
     } else {
@@ -79,7 +79,7 @@
           timerMinute.toString().padStart(2, 0) +
           ":" +
           timer.toString().padStart(2, 0) +
-          "/" +
+          " / " +
           breakMinute +
           ":00";
       } else {
@@ -87,17 +87,14 @@
           timerMinute.toString().padStart(2, 0) +
           ":" +
           timer.toString().padStart(2, 0) +
-          "/" +
+          " / " +
           tomatoMinute +
           ":00";
       }
     }
 
     document.title = timerText + " - " + statusText;
-    elTime.innerText =
-      timerMinute.toString().padStart(2, 0) +
-      ":" +
-      timer.toString().padStart(2, 0);
+    elTime.innerText = timerText;
   }, 10);
 
   const step = function () {

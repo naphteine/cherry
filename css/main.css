@@ -41,20 +41,18 @@ html {
   padding: 0.5rem 2rem;
 
   font-family: "Agdasima", sans-serif;
-}
-
-.tomato h1 {
-  font-family: "Agdasima", sans-serif;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .button {
   border: 1px solid #00000033;
-  background-color: #ff000055;
-  width: 4rem;
+  background-color: #ffffffaa;
   border-radius: 5px;
+  padding: 0.5rem 1rem;
 }
 
 .button:hover {
-  background-color: #ff000033;
+  background-color: #00000033;
   cursor: pointer;
 }

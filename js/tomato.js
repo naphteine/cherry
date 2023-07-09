@@ -5,6 +5,8 @@
   let elStatus = document.getElementById("status");
   let elButton = document.getElementById("button");
   let elTime = document.getElementById("time");
+  let elPomodoroCount = document.getElementById("pomodoro");
+  let elBreakCount = document.getElementById("break");
 
   let status = "Stopped";
   let lastStatus = "Working";
@@ -28,7 +30,6 @@
       changeStatus("Stopped");
     }
 
-    elStatus.innerText = status;
     elButton.innerText = elButton.innerText == "Start" ? "Stop" : "Start";
   });
 
@@ -48,6 +49,7 @@
     }
 
     elTomato.style.backgroundColor = color;
+    elStatus.innerText = status;
   };
 
   setInterval(function () {
@@ -109,10 +111,12 @@
       if (timer > 59) {
         if (status == "Working" && timerMinute + 1 >= tomatoMinute) {
           tomatoCounter++;
+          elPomodoroCount.innerText = tomatoCounter;
           timerMinute = 0;
           changeStatus("break");
         } else if (status == "break" && timerMinute + 1 >= breakMinute) {
           breakCounter++;
+          elBreakCount.innerText = breakCounter;
           timerMinute = 0;
           changeStatus("Working");
         } else {

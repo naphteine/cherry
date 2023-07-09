@@ -37,13 +37,13 @@
 
     switch (newStatus) {
       case "tomato":
-        color = "blue";
+        color = "#c0c0ff99";
         break;
       case "break":
-        color = "green";
+        color = "#c0ffc099";
         break;
       default:
-        color = "red";
+        color = "#ffc0c099";
         break;
     }
 
@@ -55,17 +55,41 @@
 
     if (status == "break") {
       statusText = status;
-      timerText = timerMinute + ":" + timer + "/" + breakMinute + ":00";
+      timerText =
+        timerMinute.toString().padStart(2, 0) +
+        ":" +
+        timer.toString().padStart(2, 0) +
+        "/" +
+        breakMinute +
+        ":00";
     } else if (status == "tomato") {
       statusText = status;
-      timerText = timerMinute + ":" + timer + "/" + tomatoMinute + ":00";
+      timerText =
+        timerMinute.toString().padStart(2, 0) +
+        ":" +
+        timer.toString().padStart(2, 0) +
+        "/" +
+        tomatoMinute +
+        ":00";
     } else {
       statusText = lastStatus + " " + status;
 
       if (lastStatus == "break") {
-        timerText = timerMinute + ":" + timer + "/" + breakMinute + ":00";
+        timerText =
+          timerMinute.toString().padStart(2, 0) +
+          ":" +
+          timer.toString().padStart(2, 0) +
+          "/" +
+          breakMinute +
+          ":00";
       } else {
-        timerText = timerMinute + ":" + timer + "/" + tomatoMinute + ":00";
+        timerText =
+          timerMinute.toString().padStart(2, 0) +
+          ":" +
+          timer.toString().padStart(2, 0) +
+          "/" +
+          tomatoMinute +
+          ":00";
       }
     }
 

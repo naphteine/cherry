@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap");
+
 body {
   background-color: #f5eaea64;
   color: #242020;
@@ -37,6 +39,10 @@ html {
   min-width: 300px;
   border-radius: 10px;
   padding: 0.5rem 2rem;
+}
+
+.tomato h1 {
+  font-family: "Agdasima", sans-serif;
 }
 
 .button {

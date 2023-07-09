@@ -10,12 +10,12 @@
 		<main>
 			<div class="tomato">
 				<h1>Pomodoro Clock</h1>
-				<p>Clock status: Stopped</p>
-				<p>00:00 / 25:00</p>
-				<p>Pomodoro: 0 - Break: 0</p>
+				<p>Clock status: <span id="status">Stopped</span></p>
+				<p><span id="time">00:00</span> / 25:00</p>
+				<p>Pomodoro: <span id="pomodoro">0</span> - Break: <span id="break">0</span></p>
 
-				<button class="button">Start</button>
-				<button class="button">Reset</button>
+				<button id="button" class="button">Start</button>
+				<button id="reset" class="button">Reset</button>
 			</div>
 		</main>
 		<script type="text/javascript" src="js/tomato.js"></script>

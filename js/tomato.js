@@ -1,7 +1,17 @@
 (function () {
   "use strict";
 
-  
+  let elStatus = document.getElementById("status");
+  let elButton = document.getElementById("button");
+
+  let status = "Stopped";
+
+  elButton.addEventListener("click", (event) => {
+    status = status == "Started" ? "Stopped" : "Started";
+    elStatus.innerText = status;
+
+    elButton.innerText = elButton.innerText == "Start" ? "Stop" : "Start";
+  });
 
   // let canvas = document.getElementById("mainCanvas");
   // let ctx = canvas.getContext("2d");

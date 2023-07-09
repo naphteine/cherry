@@ -7,7 +7,7 @@
   let elTime = document.getElementById("time");
 
   let status = "Stopped";
-  let lastStatus = "tomato";
+  let lastStatus = "Working";
   let tomatoCounter = 0;
   let tomatoMinute = 25;
   let breakCounter = 0;
@@ -36,7 +36,7 @@
     status = newStatus;
 
     switch (newStatus) {
-      case "tomato":
+      case "Working":
         color = "#c0c0ff99";
         break;
       case "break":
@@ -62,7 +62,7 @@
         "/" +
         breakMinute +
         ":00";
-    } else if (status == "tomato") {
+    } else if (status == "Working") {
       statusText = status;
       timerText =
         timerMinute.toString().padStart(2, 0) +
@@ -110,14 +110,14 @@
       timer++;
 
       if (timer > 59) {
-        if (status == "tomato" && timerMinute + 1 >= tomatoMinute) {
+        if (status == "Working" && timerMinute + 1 >= tomatoMinute) {
           tomatoCounter++;
           timerMinute = 0;
           changeStatus("break");
         } else if (status == "break" && timerMinute + 1 >= breakMinute) {
           breakCounter++;
           timerMinute = 0;
-          changeStatus("tomato");
+          changeStatus("Working");
         } else {
           timerMinute++;
         }

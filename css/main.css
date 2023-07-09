@@ -39,6 +39,8 @@ html {
   min-width: 300px;
   border-radius: 10px;
   padding: 0.5rem 2rem;
+
+  font-family: "Agdasima", sans-serif;
 }
 
 .tomato h1 {

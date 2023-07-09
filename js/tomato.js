@@ -70,6 +70,10 @@
     }
 
     document.title = timerText + " - " + statusText;
+    elTime.innerText =
+      timerMinute.toString().padStart(2, 0) +
+      ":" +
+      timer.toString().padStart(2, 0);
   }, 10);
 
   const step = function () {

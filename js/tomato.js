@@ -4,6 +4,7 @@
   let elTomato = document.getElementById("tomato");
   let elStatus = document.getElementById("status");
   let elButton = document.getElementById("button");
+  let elReset = document.getElementById("reset");
   let elTime = document.getElementById("time");
   let elPomodoroCount = document.getElementById("pomodoro");
   let elBreakCount = document.getElementById("break");
@@ -31,6 +32,16 @@
     }
 
     elButton.innerText = elButton.innerText == "Start" ? "Stop" : "Start";
+  });
+
+  elReset.addEventListener("click", (event) => {
+    tomatoCounter = 0;
+    breakCounter = 0;
+    timer = 0;
+    timerMinute = 0;
+    status = "Stopped";
+    lastStatus = "Working";
+    changeStatus("Stopped");
   });
 
   const changeStatus = function (newStatus) {
